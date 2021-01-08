@@ -92,7 +92,7 @@ optimizer = optim.SGD(net.parameters(), lr=opt.lr, momentum=0.9, weight_decay=5e
 def train(epoch):
     print('\nEpoch: %d' % epoch)
     global Train_acc
-    net.train()
+    net.train()+
     train_loss = 0
     correct = 0
     total = 0
@@ -116,7 +116,7 @@ def train(epoch):
         loss.backward()
         utils.clip_gradient(optimizer, 0.1)
         optimizer.step()
-        train_loss += loss.data[0]
+        train_loss += loss.data
         _, predicted = torch.max(outputs.data, 1)
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
@@ -143,7 +143,7 @@ def PublicTest(epoch):
         outputs = net(inputs)
         outputs_avg = outputs.view(bs, ncrops, -1).mean(1)  # avg over crops
         loss = criterion(outputs_avg, targets)
-        PublicTest_loss += loss.data[0]
+        PublicTest_loss += loss.data
         _, predicted = torch.max(outputs_avg.data, 1)
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
