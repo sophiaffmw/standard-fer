@@ -92,7 +92,7 @@ optimizer = optim.SGD(net.parameters(), lr=opt.lr, momentum=0.9, weight_decay=5e
 def train(epoch):
     print('\nEpoch: %d' % epoch)
     global Train_acc
-    net.train()+
+    net.train()
     train_loss = 0
     correct = 0
     total = 0
