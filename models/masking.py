@@ -29,10 +29,10 @@ class Masking4(nn.Module):
         super(Masking4, self).__init__()
         filters = [
             in_channels,
+            in_channels * 1,
             in_channels * 2,
             in_channels * 4,
             in_channels * 8,
-            in_channels * 16,
         ]
 
         self.downsample1 = nn.Sequential(
