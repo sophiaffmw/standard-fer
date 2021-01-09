@@ -21,7 +21,7 @@ class Tail(nn.Module):
         self.masking = mask
 
     def forward(self, x):
-        return x * (1 + self.masking)
+        return x * (1 + self.masking(x))
 
 class Masking4(nn.Module):
     def __init__(self, in_channels, out_channels, block=BasicBlock):

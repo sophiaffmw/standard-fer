@@ -16,7 +16,7 @@ from skimage import io
 from skimage.transform import resize
 from models import *
 
-cut_size = 44
+cut_size = 48
 
 transform_test = transforms.Compose([
     transforms.TenCrop(cut_size),
