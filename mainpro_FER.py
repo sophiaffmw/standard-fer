@@ -44,7 +44,7 @@ path = os.path.join(opt.dataset + '_' + opt.model)
 # Data
 print('==> Preparing data..')
 transform_train = transforms.Compose([
-    transforms.RandomCrop(48),
+    transforms.RandomResizedCrop(224),
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor(),
 ])
