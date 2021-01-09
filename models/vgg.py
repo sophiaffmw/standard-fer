@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
-
+from masking import *
 
 cfg = {
     'VGG11': [64, 'M', 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
@@ -27,10 +27,21 @@ class VGG(nn.Module):
         return out
 
     def _make_layers(self, cfg):
+        self.masks = []
+        self.masks.append(masking(64, 64, depth=4))
+        self.masks.append(masking(128, 128, depth=3))
+        self.masks.append(masking(256, 256, depth=2))
+        self.masks.append(masking(512, 512, depth=1))
+        self.masks.append(masking(512, 512, depth=1))
+        idx = 0
         layers = []
         in_channels = 3
         for x in cfg:
             if x == 'M':
+                # add masking
+                layers += self.masks[idx]
+                layers += Tail(self.masks[idx])
+                idx += 1
                 layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
             else:
                 layers += [nn.Conv2d(in_channels, x, kernel_size=3, padding=1),
