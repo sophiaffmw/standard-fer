@@ -28,11 +28,11 @@ class VGG(nn.Module):
 
     def _make_layers(self, cfg):
         self.masks = []
-        self.masks.append(masking(64, 64, depth=4))
-        self.masks.append(masking(128, 128, depth=3))
-        self.masks.append(masking(256, 256, depth=2))
-        self.masks.append(masking(512, 512, depth=1))
-        self.masks.append(masking(512, 512, depth=1))
+        self.masks.append(masking(256, 256, depth=4))
+        self.masks.append(masking(512, 512, depth=3))
+        self.masks.append(masking(1024, 1024, depth=2))
+        self.masks.append(masking(2048, 2048, depth=1))
+        self.masks.append(masking(2048, 2048, depth=1))
         idx = 0
         layers = []
         in_channels = 3
