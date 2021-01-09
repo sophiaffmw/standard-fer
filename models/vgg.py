@@ -39,8 +39,8 @@ class VGG(nn.Module):
         for x in cfg:
             if x == 'M':
                 # add masking
-                layers += self.masks[idx]
-                layers += Tail(self.masks[idx])
+                layers += [self.masks[idx]]
+                layers += [Tail(self.masks[idx])]
                 idx += 1
                 layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
             else:
