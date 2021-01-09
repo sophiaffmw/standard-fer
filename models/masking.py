@@ -115,7 +115,7 @@ class Masking4(nn.Module):
                 nn.init.constant_(m.bn2.weight, 0)
 
     def forward(self, x):
-        print('x shape', x.shape)
+        # print('x shape', x.shape)
         x1 = self.conv1(x)
         p1 = self.down_pooling(x1)
         x2 = self.conv2(p1)
@@ -125,8 +125,8 @@ class Masking4(nn.Module):
         x4 = self.conv4(p3)
 
         x5 = self.up_pool5(x4)
-        print('x3', x3.shape)
-        print('x5', x5.shape)
+        # print('x3', x3.shape)
+        # print('x5', x5.shape)
         x5 = torch.cat([x5, x3], dim=1)
         x5 = self.conv5(x5)
 
