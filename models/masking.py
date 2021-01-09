@@ -29,10 +29,10 @@ class Masking4(nn.Module):
         super(Masking4, self).__init__()
         filters = [
             in_channels,
-            in_channels * 1,
             in_channels * 2,
             in_channels * 4,
             in_channels * 8,
+            in_channels * 16,
         ]
 
         self.downsample1 = nn.Sequential(
@@ -89,7 +89,7 @@ class Masking4(nn.Module):
         self.conv6 = block(filters[1], filters[0], downsample=conv1x1(filters[1], filters[0], 1))
         """
 
-        self.up_pool5 = up_pooling(filters[4], filters[3])
+        self.up_pool5 = up_pooling(filters[4], filters[4])
         self.conv5 = block(filters[4], filters[3], downsample=self.downsample5)
         self.up_pool6 = up_pooling(filters[3], filters[2])
         self.conv6 = block(filters[3], filters[2], downsample=self.downsample6)
