@@ -13,6 +13,13 @@ import torch.nn as nn
 import torch.nn.init as init
 from torch.autograd import Function
 
+
+try:
+    from torch.hub import load_state_dict_from_url
+except ImportError:
+    from torch.utils.model_zoo import load_url as load_state_dict_from_url
+
+
 _, term_width = os.popen('stty size', 'r').read().split()
 term_width = int(term_width)
 
