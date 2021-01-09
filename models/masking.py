@@ -115,6 +115,7 @@ class Masking4(nn.Module):
                 nn.init.constant_(m.bn2.weight, 0)
 
     def forward(self, x):
+        print('x shape', x.shape)
         x1 = self.conv1(x)
         p1 = self.down_pooling(x1)
         x2 = self.conv2(p1)
