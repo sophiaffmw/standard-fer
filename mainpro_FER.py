@@ -36,7 +36,7 @@ learning_rate_decay_start = 80  # 50
 learning_rate_decay_every = 5 # 5
 learning_rate_decay_rate = 0.9 # 0.9
 
-cut_size = 44
+cut_size = 48
 total_epoch = 250
 
 path = os.path.join(opt.dataset + '_' + opt.model)
@@ -44,7 +44,7 @@ path = os.path.join(opt.dataset + '_' + opt.model)
 # Data
 print('==> Preparing data..')
 transform_train = transforms.Compose([
-    transforms.RandomCrop(44),
+    transforms.RandomCrop(48),
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor(),
 ])
