@@ -133,7 +133,7 @@ def train(epoch):
         'net': net.state_dict() if use_cuda else net,
         'epoch': epoch,
     }
-    torch.save(state, '/content/drive/My Drive/model.t7'))
+    torch.save(state, '/content/drive/My Drive/model.t7')
 
 def PublicTest(epoch):
     global PublicTest_acc
