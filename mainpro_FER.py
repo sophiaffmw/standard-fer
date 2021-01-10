@@ -129,6 +129,8 @@ def train(epoch):
 def PublicTest(epoch):
     global PublicTest_acc
     global best_PublicTest_acc
+    print('PublicTest acc',PublicTest_acc)
+    print('PrivateTest acc', PrivateTest_acc)
     global best_PublicTest_acc_epoch
     net.eval()
     PublicTest_loss = 0
