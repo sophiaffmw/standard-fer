@@ -55,7 +55,7 @@ transform_test = transforms.Compose([
 ])
 
 trainset = FER2013(split = 'Training', transform=transform_train)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=opt.bs, shuffle=True, num_workers=1)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=opt.bs, shuffle=True, num_workers=4)
 PublicTestset = FER2013(split = 'PublicTest', transform=transform_test)
 PublicTestloader = torch.utils.data.DataLoader(PublicTestset, batch_size=4, shuffle=False, num_workers=4)
 PrivateTestset = FER2013(split = 'PrivateTest', transform=transform_test)
