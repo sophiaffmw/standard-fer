@@ -69,9 +69,9 @@ elif opt.model  == 'Resnet18':
 
 if opt.resume:
     # Load checkpoint.
-    print('==> Resuming from checkpoint..')
-    assert os.path.isdir(path), 'Error: no checkpoint directory found!'
-    checkpoint = torch.load(os.path.join(path,'PrivateTest_model.t7'))
+    # print('==> Resuming from checkpoint..')
+    # assert os.path.isdir(path), 'Error: no checkpoint directory found!'
+    checkpoint = torch.load('PrivateTest_model.t7')
 
     net.load_state_dict(checkpoint['net'])
     best_PublicTest_acc = checkpoint['best_PublicTest_acc']
