@@ -128,7 +128,6 @@ def train(epoch):
 
     Train_acc = 100.*correct/total
     print('Saving..')
-    print("best_PublicTest_acc: %0.3f" % PublicTest_acc)
     state = {
         'net': net.state_dict() if use_cuda else net,
         'epoch': epoch,
@@ -221,7 +220,7 @@ def PrivateTest(epoch):
 
 for epoch in range(start_epoch, total_epoch):
     train(epoch)
-    if epoch < 150:
+    if epoch < 200:
         # net.eval()
         continue
     PublicTest(epoch)
