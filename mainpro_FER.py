@@ -76,6 +76,8 @@ if opt.resume:
     net.load_state_dict(checkpoint['net'])
     best_PublicTest_acc = checkpoint['best_PublicTest_acc']
     best_PrivateTest_acc = checkpoint['best_PrivateTest_acc']
+    print('best PublicTest acc', best_PublicTest_acc)
+    print('best PrivateTest acc'. best_PrivateTest_acc)
     best_PrivateTest_acc_epoch = checkpoint['best_PublicTest_acc_epoch']
     best_PrivateTest_acc_epoch = checkpoint['best_PrivateTest_acc_epoch']
     start_epoch = checkpoint['best_PrivateTest_acc_epoch'] + 1
@@ -129,8 +131,6 @@ def train(epoch):
 def PublicTest(epoch):
     global PublicTest_acc
     global best_PublicTest_acc
-    print('PublicTest acc',PublicTest_acc)
-    print('PrivateTest acc', PrivateTest_acc)
     global best_PublicTest_acc_epoch
     net.eval()
     PublicTest_loss = 0
