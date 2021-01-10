@@ -127,6 +127,13 @@ def train(epoch):
             % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
     Train_acc = 100.*correct/total
+    print('Saving..')
+    print("best_PublicTest_acc: %0.3f" % PublicTest_acc)
+    state = {
+        'net': net.state_dict() if use_cuda else net,
+        'epoch': epoch,
+    }
+    torch.save(state, '/content/drive/My Drive/model.t7'))
 
 def PublicTest(epoch):
     global PublicTest_acc
