@@ -214,6 +214,9 @@ def PrivateTest(epoch):
 
 for epoch in range(start_epoch, total_epoch):
     train(epoch)
+    if epoch < 150:
+        net.eval()
+        continue
     PublicTest(epoch)
     PrivateTest(epoch)
 
