@@ -77,7 +77,7 @@ if opt.resume:
     best_PublicTest_acc = checkpoint['best_PublicTest_acc']
     best_PrivateTest_acc = checkpoint['best_PrivateTest_acc']
     print('best PublicTest acc', best_PublicTest_acc)
-    print('best PrivateTest acc'. best_PrivateTest_acc)
+    print('best PrivateTest acc', best_PrivateTest_acc)
     best_PrivateTest_acc_epoch = checkpoint['best_PublicTest_acc_epoch']
     best_PrivateTest_acc_epoch = checkpoint['best_PrivateTest_acc_epoch']
     start_epoch = checkpoint['best_PrivateTest_acc_epoch'] + 1
