@@ -62,8 +62,8 @@ PrivateTestset = FER2013(split = 'PrivateTest', transform=transform_test)
 PrivateTestloader = torch.utils.data.DataLoader(PrivateTestset, batch_size=4, shuffle=False, num_workers=1)
 
 # Model
-if opt.model == 'VGG19':
-    net = VGG('VGG19')
+if opt.model == 'VGG16':
+    net = VGG('VGG16')
 elif opt.model  == 'Resnet18':
     net = ResNet18()
 
