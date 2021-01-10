@@ -32,7 +32,7 @@ class VGG(nn.Module):
         self.masks.append(masking(128, 128, depth=3))
         self.masks.append(masking(256, 256, depth=2))
         self.masks.append(masking(512, 512, depth=1))
-        # self.masks.append(masking(512, 512, depth=1))
+        self.masks.append(masking(512, 512, depth=1))
         idx = 0
         layers = []
         in_channels = 3
