@@ -32,12 +32,12 @@ best_PrivateTest_acc = 0  # best PrivateTest accuracy
 best_PrivateTest_acc_epoch = 0
 start_epoch = 0  # start from epoch 0 or last checkpoint epoch
 
-learning_rate_decay_start = 80  # 50
-learning_rate_decay_every = 5 # 5
+learning_rate_decay_start = 160  # 50
+learning_rate_decay_every = 10 # 5
 learning_rate_decay_rate = 0.9 # 0.9
 
 cut_size = 48
-total_epoch = 250
+total_epoch = 400
 
 path = os.path.join(opt.dataset + '_' + opt.model)
 
